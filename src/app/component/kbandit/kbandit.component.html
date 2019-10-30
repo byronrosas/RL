@@ -3,36 +3,45 @@
 
 Pacientes:
 <input type="range" name="" [(ngModel)]="pacientes" id="input" value="" min="0" max="50" step="1" required="required"
-    title="">{{pacientes}}
+        title="">{{pacientes}}
 <br>
 Medicinas:
 <input type="range" name="" [(ngModel)]="medicinas" (change)="changeMedicinas()" id="input" value="" min="0" max="20"
-    step="1" required="required" title=""> {{medicinas}}
+        step="1" required="required" title=""> {{medicinas}}
 <br>
 <div>
-    <h2>Medicinas:</h2>
-    <button *ngFor="let item of arrBtnMedicinas;let i=index" (click)="clickMedicina(i)"
-        [disabled]="arrBtnTest.length==pacientes">Medicina {{i}}</button>
+        <h2>Medicinas:</h2>
+        <button *ngFor="let item of arrBtnMedicinas;let i=index" (click)="clickMedicina(i)"
+                [disabled]="arrBtnTest.length==pacientes">Medicina {{i}}</button>
 
 </div>
 <div>
-    <h2>Resultados:</h2>
-    <div class="flex-results">
-            <div>
-                    USUARIO:        
-                    <div *ngFor="let t of arrBtnTest">Medicina: {{t.medicina}} :=> {{t.result}}</div>
-            </div>
-            <div>
-                    E-GREEDY (Experimental Mean):        
-                    <div *ngFor="let t of arrBtnTest_E_GREEDY_MEAN">Medicina: {{t.medicina}} :=> {{t.result}}</div>
-            </div>
-            <div>
-                    E-GREEDY<br>
-                    (Incremental Action Value Estimation - 
-                    <br>Estacionario:El Valor no cambia en el tiempo):        
-                    <div *ngFor="let t of arrBtnTest_E_GREEDY_INCREMENTAL">Medicina: {{t.medicina}} :=> {{t.result}}</div>
-            </div>
-    </div>        
+        <h2>Resultados:</h2>
+        <div class="flex-results">
+                <div>
+                        (F:{{arrFail[0]}},V:{{arrWin[0]}})<br>
+                        USUARIO:
+                        <div *ngFor="let t of arrBtnTest">Medicina: {{t.medicina}} :=> {{t.result}}</div>
+                </div>
+                <div>
+                        (F:{{arrFail[1]}},V:{{arrWin[1]}})<br>
+                        E-GREEDY (Experimental Mean):
+                        <div *ngFor="let t of arrBtnTest_E_GREEDY_MEAN">Medicina: {{t.medicina}} :=> {{t.result}}</div>
+                </div>
+                <div>
+                        (F:{{arrFail[2]}},V:{{arrWin[2]}})<br>
+                        E-GREEDY<br>
+                        (Incremental Action Value Estimation -
+                        <br>Estacionario:El Valor no cambia en el tiempo):
+                        <div *ngFor="let t of arrBtnTest_E_GREEDY_INCREMENTAL">Medicina: {{t.medicina}} :=> {{t.result}}
+                        </div>
+                </div>
+                <div>
+                        (F:{{arrFail[3]}},V:{{arrWin[3]}})<br>
+                        UCB
+                        <div *ngFor="let t of arrBtnTest_UCB">Medicina: {{t.medicina}} :=> {{t.result}}</div>
+                </div>
+        </div>
 </div>
 
 <app-barra [objGraphicData]="objGraphicData" [data]="data" [lb]="lb"></app-barra>
