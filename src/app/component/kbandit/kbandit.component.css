@@ -1,0 +1,8 @@
+.flex-results
+{    
+    display: flex; /* or inline-flex */      
+}
+.flex-results>div{
+    padding: 2px;
+    margin: 5px;
+}
