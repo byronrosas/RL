@@ -1,0 +1,22 @@
+<p>pi-vi-dp works!</p>
+
+Ingrese el número de actions en el espacio de actions (A)
+<input type="range" name="actions" step="1" min="0" max="100" (change)="fchange('actions',actions)" id="actions" [(ngModel)]="actions">({{actions}})
+Ingrese el número de states en el espacio de states (S)
+<input type="range" name="states" step="1" min="0" max="100" (change)="fchange('states',states)" id="states" [(ngModel)]="states">({{states}})
+
+<button (click)="example()" >Cargar Ejemplo</button>
+<div *ngFor="let accion of p; let i = index" >
+    <div>
+        <div *ngFor="let state_row of accion; let i_state=index"  style="display:flex;">            
+            <div>S_{{i_state}}</div>
+            <div *ngFor="let state_col of accion; let j_state=index" >                
+                <div *ngIf="i_state==0" >S_{{j_state}}</div>
+                <input type="range" step="1" min="-1" max="100" id="{{i}}_{{i_state}}_{{j_state}}" name="{{i}}_{{i_state}}_{{j_state}}" [(ngModel)]="this.p[i][i_state][j_state]">({{p[i][i_state][j_state]/100}};{{this.r[i][i_state][j_state]}})                
+                <input type="number" *ngIf="this.p[i][i_state][j_state]>=0"  id="{{i}}_{{i_state}}_{{j_state}}_r" name="{{i}}_{{i_state}}_{{j_state}}_r" [(ngModel)]="this.r[i][i_state][j_state]">
+            </div>
+        </div>
+    </div>
+</div>
+<button (click)="generarMapa()">Generar Mapa</button>
+<app-markov-map  [indAux]="aux" [ele]="diagram_arr"></app-markov-map>

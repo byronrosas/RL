@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { KBanditComponent } from './component/kbandit/kbandit.component';
 import {ChartsModule} from "ng2-charts";
 import { BarraComponent } from './component/graficos/barra/barra.component';
+import { PIVIDPComponent } from './component/pi-vi-dp/pi-vi-dp.component';
+import { MarkovMapComponent } from './component/graficos/markov-map/markov-map.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     KBanditComponent,
-    BarraComponent    
+    BarraComponent,
+    PIVIDPComponent,
+    MarkovMapComponent    
   ],
   imports: [  
     FormsModule,  

@@ -20,16 +20,19 @@ Medicinas:
         <div class="flex-results">
                 <div>
                         (F:{{arrFail[0]}},V:{{arrWin[0]}})<br>
+                        regret={{valor_regret[0]}}<br>
                         USUARIO:
                         <div *ngFor="let t of arrBtnTest">Medicina: {{t.medicina}} :=> {{t.result}}</div>
                 </div>
                 <div>
                         (F:{{arrFail[1]}},V:{{arrWin[1]}})<br>
+                        regret={{valor_regret[1]}}<br>
                         E-GREEDY (Experimental Mean):
                         <div *ngFor="let t of arrBtnTest_E_GREEDY_MEAN">Medicina: {{t.medicina}} :=> {{t.result}}</div>
                 </div>
                 <div>
                         (F:{{arrFail[2]}},V:{{arrWin[2]}})<br>
+                        regret={{valor_regret[2]}}<br>
                         E-GREEDY<br>
                         (Incremental Action Value Estimation -
                         <br>Estacionario:El Valor no cambia en el tiempo):
@@ -38,10 +41,18 @@ Medicinas:
                 </div>
                 <div>
                         (F:{{arrFail[3]}},V:{{arrWin[3]}})<br>
+                        regret={{valor_regret[3]}}<br>
                         UCB
                         <div *ngFor="let t of arrBtnTest_UCB">Medicina: {{t.medicina}} :=> {{t.result}}</div>
                 </div>
+                <div>
+                        (F:{{arrFail[3]}},V:{{arrWin[3]}})<br>
+                        regret={{valor_regret[4]}}<br>
+                        THOMPSON
+                        <div *ngFor="let t of arrBtnTest_THOMPSON">Medicina: {{t.medicina}} :=> {{t.result}}</div>
+                </div>
         </div>
 </div>
-
-<app-barra [objGraphicData]="objGraphicData" [data]="data" [lb]="lb"></app-barra>
+<div *ngIf="data && lb" >
+        <app-barra [objGraphicData]="objGraphicData" [data]="data" [lb]="lb"></app-barra>
+</div>
