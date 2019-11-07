@@ -4,8 +4,13 @@ Ingrese el número de actions en el espacio de actions (A)
 <input type="range" name="actions" step="1" min="0" max="100" (change)="fchange('actions',actions)" id="actions" [(ngModel)]="actions">({{actions}})
 Ingrese el número de states en el espacio de states (S)
 <input type="range" name="states" step="1" min="0" max="100" (change)="fchange('states',states)" id="states" [(ngModel)]="states">({{states}})
+<br>Ingrese las probabilidades de cada accion:
+<div *ngFor="let p_a of actions_arr;let i of index" >    
+    <input type="number" name="action" id="input"   min="0" [(ngModel)]="p_a" max=1 step="0.1" required="required" title="">    
+</div>
 
 <button (click)="example()" >Cargar Ejemplo</button>
+<button (click)="example_2()" >Cargar Ejemplo2</button>
 <div *ngFor="let accion of p; let i = index" >
     <div>
         <div *ngFor="let state_row of accion; let i_state=index"  style="display:flex;">            
@@ -20,3 +25,8 @@ Ingrese el número de states en el espacio de states (S)
 </div>
 <button (click)="generarMapa()">Generar Mapa</button>
 <app-markov-map  [indAux]="aux" [ele]="diagram_arr"></app-markov-map>
+<ul>
+    <li *ngFor="let o of objPolicyIteration">
+        {{o['BELLMAN']}}
+    </li>
+</ul>
